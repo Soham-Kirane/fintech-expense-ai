@@ -1,0 +1,16 @@
+from fastapi import FastAPI
+
+app = FastAPI(
+    title="FinTech Expense AI",
+    description=(
+        "An open-source personal finance intelligence platform "
+        "for transaction analytics, forecasting, and financial insights."
+    ),
+    version="0.1.0",
+)
+
+
+@app.get("/health", tags=["System"])
+def health_check() -> dict[str, str]:
+    """Return the service health status."""
+    return {"status": "healthy"}
